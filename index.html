@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Chamado</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            overflow-x: hidden; /* Impede a rolagem horizontal */
+            overflow-y: hidden; /* Impede a rolagem vertical */
+            height: 100vh; /* Garante que o body ocupa 100% da altura da viewport */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto; /* Centraliza o container horizontalmente */
+            display: flex;
+            align-items: flex-start;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 100vh; /* Garante que o container ocupa toda a altura da viewport */
+            box-sizing: border-box; /* Inclui padding e border no cálculo da altura e largura */
+            overflow: auto; /* Adiciona rolagem automática se necessário */
+        }
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow: hidden; /* Garante que a imagem não cause rolagem */
+        }
+        .image-container img {
+            max-width: 100%; /* Garante que a imagem se ajuste ao container */
+            max-height: 100%; /* Garante que a imagem não exceda a altura do container */
+            height: auto;
+            width: auto;
+        }
+        .form-container {
+            flex: 2;
+            padding: 20px;
+            box-sizing: border-box; /* Inclui padding no cálculo da largura */
+            overflow: hidden; /* Garante que o formulário não cause rolagem */
+            max-height: 100%; /* Garante que a altura do formulário não exceda a do container */
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            margin-top: 2px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="./pc.gif" alt="Imagem de Suporte">
+        </div>
+        <div class="form-container">
+            <h1>Formulário de Chamado</h1>
+            <form id="chamadoForm">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="sala">Sala:</label>
+                    <input type="text" id="sala" name="sala" required>
+                </div>
+                <div class="form-group">
+                    <label for="andar">Andar:</label>
+                    <input type="text" id="andar" name="andar" required>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição do Problema:</label>
+                    <textarea id="descricao" name="descricao" rows="4" required></textarea>
+                </div>
+                <button type="submit">Enviar Chamado</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('chamadoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const sala = document.getElementById('sala').value;
+            const andar = document.getElementById('andar').value;
+            const descricao = document.getElementById('descricao').value;
+
+            const chamado = {
+                nome: nome,
+                sala: sala,
+                andar: andar,
+                descricao: descricao,
+                status: 'pendente',
+                id: Date.now()
+            };
+
+            let chamados = JSON.parse(localStorage.getItem('chamados')) || [];
+            chamados.push(chamado);
+            localStorage.setItem('chamados', JSON.stringify(chamados));
+
+            alert('Chamado enviado com sucesso!');
+            document.getElementById('chamadoForm').reset();
+        });
+    </script>
+</body>
+</html>
