@@ -1,0 +1,130 @@
+/* css.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    margin: 0;
+    padding: 0;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Remove a barra de rolagem vertical */
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    overflow: hidden; /* Garante que não haja overflow */
+}
+
+.image-section {
+    flex: 1;
+    max-width: 45%;
+    display: flex;
+    justify-content: center;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    max-height: 300px; /* Define a altura máxima da imagem */
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-section {
+    flex: 1;
+    max-width: 50%;
+    overflow-y: auto; /* Adiciona rolagem interna se necessário */
+}
+
+h1 {
+    font-size: 24px; /* Ajustado para se adequar melhor */
+    color: #f0f0f0;
+    margin-bottom: 15px; /* Diminuído para um ajuste melhor */
+    text-align: center;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Diminuído para um ajuste mais compacto */
+}
+
+label {
+    font-size: 12px; /* Ajustado para ser menor e se ajustar melhor */
+    font-weight: 500;
+    color: #e0e0e0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+input, textarea, select {
+    padding: 8px; /* Ajustado para reduzir o tamanho */
+    font-size: 12px; /* Ajustado para reduzir o tamanho */
+    border: 2px solid #00d2ff;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #e0e0e0;
+    transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #00d2ff;
+    background: rgba(0, 0, 0, 0.7);
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 210, 255, 0.5);
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 8px 12px; /* Ajustado para ser menor */
+    font-size: 12px; /* Ajustado para reduzir o tamanho */
+    color: #fff;
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+    text-transform: uppercase;
+    font-weight: 500;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+#confirmationMessage {
+    margin-top: 15px; /* Ajustado para um ajuste mais compacto */
+    padding: 10px;
+    background-color: rgba(0, 255, 0, 0.1);
+    color: #00ff00;
+    border: 1px solid rgba(0, 255, 0, 0.2);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 12px; /* Ajustado para reduzir o tamanho */
+    font-weight: 500;
+}
+
+.hidden {
+    display: none;
+}
