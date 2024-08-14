@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Suporte</title>
+    <link rel="stylesheet" href="./css.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-section">
+            <img src="./pc.gif" alt="Imagem de Suporte">
+        </div>
+        <div class="form-section">
+            <h1>Formulário de Suporte de TI</h1>
+            <form id="supportForm">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="room">Sala:</label>
+                <input type="text" id="room" name="room" required>
+                
+                <label for="floor">Andar:</label>
+                <input type="text" id="floor" name="floor" required>
+                
+                <label for="issue">Descrição do Problema:</label>
+                <textarea id="issue" name="issue" rows="4" required></textarea>
+
+                <label for="priority">Prioridade:</label>
+                <select id="priority" name="priority" required>
+                    <option value="crítico">Crítico</option>
+                    <option value="urgente">Urgente</option>
+                    <option value="médio">Médio</option>
+                </select>
+                
+                <button type="submit">Enviar Chamado</button>
+            </form>
+            <div id="confirmationMessage" class="hidden">Seu chamado foi registrado com sucesso!</div>
+        </div>
+    </div>
+
+    <script src="form-script.js"></script>
+</body>
+</html>
